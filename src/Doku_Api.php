@@ -18,9 +18,9 @@ class Doku_Api
      */
     public static function doPrePayment($data)
     {
-        $data['req_basket'] = Library::formatBasket($data['req_basket']);
+        $data['req_basket'] = Doku_Library::formatBasket($data['req_basket']);
 
-        return self::getResponse(Doku::getPrePaymentUrl(), $data);
+        return self::getResponse(Doku_Initiate::getPrePaymentUrl(), $data);
     }
 
     /**
@@ -29,9 +29,9 @@ class Doku_Api
      */
     public static function doPayment($data)
     {
-        $data['req_basket'] = Library::formatBasket($data['req_basket']);
+        $data['req_basket'] = Doku_Library::formatBasket($data['req_basket']);
 
-        return self::getResponse(Doku::getPaymentUrl(), $data);
+        return self::getResponse(Doku_Initiate::getPaymentUrl(), $data);
     }
 
     /**
@@ -40,7 +40,7 @@ class Doku_Api
      */
     public static function doDirectPayment($data)
     {
-        return self::getResponse(Doku::getDirectPaymentUrl(), $data);
+        return self::getResponse(Doku_Initiate::getDirectPaymentUrl(), $data);
     }
 
     /**
@@ -49,7 +49,16 @@ class Doku_Api
      */
     public static function doGeneratePaycode($data)
     {
-        return self::getResponse(Doku::getGenerateCodeUrl(), $data);
+        return self::getResponse(Doku_Initiate::getGenerateCodeUrl(), $data);
+    }
+
+    /**
+     * @param $data
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public static function checkStatus($data)
+    {
+        return self::getHostedResponse(Doku_Initiate::getStatusUrl(), $data);
     }
 
     /**
@@ -66,5 +75,21 @@ class Doku_Api
         ]);
 
         return $response;
+    }
+
+    /**
+     * @param $url
+     * @param $data
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+
+    private static function getHostedResponse($url, $data)
+    {
+        $client = new Client();
+        $response = $client->post($url, [
+            'form_params' => $data,
+        ]);
+
+        return $response->getBody();
     }
 }

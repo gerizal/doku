@@ -29,25 +29,31 @@ class Doku_Initiate
 
     public static function getPrePaymentUrl()
     {
-        return Doku::$isProduction ?
-            Doku::prePaymentUrl : Doku::sandboxPrePaymentUrl;
+        return Doku_Initiate::$isProduction ?
+            Doku_Initiate::prePaymentUrl : Doku_Initiate::sandboxPrePaymentUrl;
     }
 
     public static function getPaymentUrl()
     {
-        return Doku::$isProduction ?
-            Doku::paymentUrl : Doku::sandboxPaymentUrl;
+        return Doku_Initiate::$isProduction ?
+            Doku_Initiate::paymentUrl : Doku_Initiate::sandboxPaymentUrl;
     }
 
     public static function getDirectPaymentUrl()
     {
-        return Doku::$isProduction ?
-            Doku::directPaymentUrl : Doku::sandboxDirectPaymentUrl;
+        return Doku_Initiate::$isProduction ?
+            Doku_Initiate::directPaymentUrl : Doku_Initiate::sandboxDirectPaymentUrl;
     }
 
     public static function getGenerateCodeUrl()
     {
-        return Doku::$isProduction ?
-            Doku::generateCodeUrl : Doku::sandboxGenerateCodeUrl;
+        return Doku_Initiate::$isProduction ?
+            Doku_Initiate::generateCodeUrl : Doku_Initiate::sandboxGenerateCodeUrl;
+    }
+
+    public static function getStatusUrl()
+    {
+        return Doku_Initiate::$isProduction ?
+            Doku_Initiate::sandboxPrePaymentUrl : Doku_Initiate::sandboxCheckStatus;
     }
 }
