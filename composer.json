@@ -1,0 +1,27 @@
+{
+    "name": "gerizal/doku",
+    "keywords": ["doku", "api"],
+    "description": "Rebuild from otezz/doku-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wage Rizal Solichin",
+            "email": "wgerizal@gmail.com"
+        }
+    ],
+    "type": "project",
+    "require": {
+		"php": ">=7.1",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+		"phpunit/phpunit": "6.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "gerizal\\doku\\": "src/"
+        }
+    }
+}
