@@ -1,4 +1,4 @@
-# composer require gerizal/doku
+<pre>composer require gerizal/doku</pre>
 
 please visit https://www.doku.com/API/index.html#merchant-hosted-api
 
