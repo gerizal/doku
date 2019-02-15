@@ -11,6 +11,7 @@ class Doku_Initiate
 {
     public static $isProduction = false;
     //local
+    const sandboxHostedPayment = 'https://staging.doku.com/Suite/Receive';
     const sandboxCheckStatus = 'https://staging.doku.com/Suite/CheckStatus';
     const sandboxPrePaymentUrl = 'https://staging.doku.com/api/payment/PrePayment';
     const sandboxPaymentUrl = 'https://staging.doku.com/api/payment/paymentMip';
@@ -18,6 +19,7 @@ class Doku_Initiate
     const sandboxGenerateCodeUrl = 'https://staging.doku.com/api/payment/doGeneratePaymentCode';
 
     //production
+    const HostedPayment = 'https://pay.doku.com/Suite/Receive';
     const CheckStatus = 'https://pay.doku.com/Suite/CheckStatus';
     const prePaymentUrl = 'https://pay.doku.com/api/payment/PrePayment';
     const paymentUrl = 'https://pay.doku.com/api/payment/paymentMip';
